@@ -9,7 +9,7 @@ license = "MIT"
 name = "mcp3xxx"
 readme = "README.md"
 repository = "https://github.com/trashware/mcp3xxx-rs"
-version = "0.1.0-dev"
+version = "0.1.0-pre.1"
 
 [dependencies]
 rppal = "0.11.3"
