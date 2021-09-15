@@ -1,0 +1,19 @@
+on: ['push', 'pull_request']
+name: 'Test Suite'
+jobs:
+    test:
+        name: 'Test'
+        runs-on: 'ubuntu-20.04'
+        strategy:
+            matrix:
+                toolchain: ['stable']
+        steps:
+            - uses: 'actions/checkout@v2'
+            - uses: 'actions-rs/toolchain@v1'
+              with:
+                  toolchain: '${{ matrix.toolchain }}'
+            - uses: 'actions-rs/cargo@v1'
+              with:
+                  command: 'test'
+              env:
+                  RUSTFLAGS: '--deny warnings'
